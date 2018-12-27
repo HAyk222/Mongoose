@@ -1,0 +1,19 @@
+extends layout.pug
+
+block head
+	title Todoes
+
+block content
+	div(class="todo-content")
+		form(class="todo-form" method="post" action="/")
+			input(class="formInput" type="text" name="todo")
+			input(class="add" type="submit" value="Add Todo" disabled="true")
+		ul
+			each item in allTodoes
+				li 
+					span(class="text") #{item.todo}
+					a(class="edit" href=`/edit/${item.id}` name=`${item.id}`) edit
+					a(class="delete" href=`/delete/${item.id}` name=`${item.id}`) delete
+		div(class="todo")
+			span ToDo
+			span(class="count") #{allTodoes.length} 
