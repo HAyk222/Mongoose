@@ -54,7 +54,7 @@ routes.post('/', (req, res) => {
     });
 })
 
-routes.put('/update/:id', (req, res) => {
+routes.post('/update/:id', (req, res) => {
     todos.findOneAndUpdate({
         _id: req.params.id
         },
